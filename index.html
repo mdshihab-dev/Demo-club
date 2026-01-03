@@ -1,0 +1,989 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dhaka Club | The oldest recreation organisation</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        /* Navbar Styles */
+        .navbar {
+            background-color: #1a472a;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            color: #fff !important;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+        
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: #d4af37 !important;
+        }
+        
+        /* Hero Carousel */
+        .hero-carousel {
+            height: 600px;
+        }
+        
+        .hero-carousel .carousel-item {
+            height: 600px;
+        }
+        
+        .hero-carousel .carousel-item img {
+            height: 600px;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+        
+        .carousel-caption {
+            bottom: 50%;
+            transform: translateY(50%);
+        }
+        
+        .carousel-caption h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+        
+        .carousel-caption p {
+            font-size: 1.3rem;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+        }
+        
+        /* Feature Cards Section */
+        .feature-cards {
+            background-color: #f8f9fa;
+            padding: 80px 0;
+        }
+        
+        .feature-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .feature-card i {
+            font-size: 3rem;
+            color: #1a472a;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1a472a;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a472a;
+            margin-bottom: 10px;
+        }
+        
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section-divider {
+            width: 80px;
+            height: 4px;
+            background: #d4af37;
+            margin: 20px auto;
+        }
+        
+        /* Contact Info Bar */
+        .contact-bar {
+            background-color: #1a472a;
+            color: #fff;
+            padding: 20px 0;
+        }
+        
+        .contact-bar p {
+            margin: 5px 0;
+            font-size: 0.95rem;
+        }
+        
+        .contact-bar strong {
+            color: #d4af37;
+        }
+        
+        /* Events Section */
+        .events-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .event-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 30px;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .event-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .event-card-body {
+            padding: 25px;
+        }
+        
+        .event-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1a472a;
+            margin-bottom: 10px;
+        }
+        
+        .event-date {
+            color: #d4af37;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        
+        .event-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .btn-primary-custom {
+            background-color: #1a472a;
+            color: #fff;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-primary-custom:hover {
+            background-color: #d4af37;
+            color: #1a472a;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .about-content {
+            line-height: 1.8;
+            color: #555;
+            font-size: 1.05rem;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(26,71,42,0.9), transparent);
+            padding: 20px;
+            color: #fff;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        /* Video Gallery */
+        .video-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .video-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .video-item iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+        
+        /* News Section */
+        .news-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .news-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .news-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .news-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        /* History Section */
+        .history-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1a472a 0%, #2d5f3f 100%);
+            color: #fff;
+        }
+        
+        .history-content {
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .history-section .section-title h2 {
+            color: #fff;
+        }
+        
+        .history-section .section-divider {
+            background: #d4af37;
+        }
+        
+        .history-founders {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .history-founders ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .history-founders li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .history-founders li:last-child {
+            border-bottom: none;
+        }
+        
+        /* President Section */
+        .president-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .president-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .president-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #1a472a;
+            margin-bottom: 30px;
+        }
+        
+        .president-message {
+            line-height: 1.8;
+            color: #555;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+        
+        .president-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a472a;
+            margin-top: 20px;
+        }
+        
+        .president-title {
+            color: #d4af37;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .contact-info {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .contact-info h4 {
+            color: #1a472a;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info i {
+            color: #d4af37;
+            margin-right: 10px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #1a472a;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        
+        .footer a {
+            color: #d4af37;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: #fff;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-carousel {
+                height: 400px;
+            }
+            
+            .hero-carousel .carousel-item {
+                height: 400px;
+            }
+            
+            .hero-carousel .carousel-item img {
+                height: 400px;
+            }
+            
+            .carousel-caption h1 {
+                font-size: 2rem;
+            }
+            
+            .carousel-caption p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .feature-card {
+                margin-bottom: 30px;
+            }
+            
+            .president-image {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-crown"></i> THE DHAKA CLUB
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#events">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#history">History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Carousel -->
+    <section id="home" class="hero-carousel">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://images.unsplash.com/photo-1619492774026-a9d7bebe06e8?w=1920&h=600&fit=crop" alt="Dhaka Club">
+                    <div class="carousel-caption">
+                        <h1>Welcome to The Dhaka Club</h1>
+                        <p>The Oldest Recreation Organisation</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1662659022684-61bd63df5c17?w=1920&h=600&fit=crop" alt="Elite Club">
+                    <div class="carousel-caption">
+                        <h1>Excellence in Tradition</h1>
+                        <p>112 Years of Prestigious Heritage</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1563573143765-fb9f46ff7e45?w=1920&h=600&fit=crop" alt="Club Facilities">
+                    <div class="carousel-caption">
+                        <h1>World-Class Facilities</h1>
+                        <p>Experience Luxury and Comfort</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Contact Bar -->
+    <section class="contact-bar">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <p><strong>Address:</strong> Moulana Bhashani Road, Ramna, Dhaka-1000, Bangladesh</p>
+                </div>
+                <div class="col-md-4">
+                    <p><strong>Email:</strong> info@dhakaclubltd.com</p>
+                </div>
+                <div class="col-md-4">
+                    <p><strong>Phone:</strong> PABX NO: +8802 41060405-10, 02-41060412</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Cards -->
+    <section class="feature-cards">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <i class="fas fa-music"></i>
+                        <h3>Entertainment</h3>
+                        <p>Experience world-class entertainment facilities with our premium amenities and services.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <i class="fas fa-dumbbell"></i>
+                        <h3>Sports and Health</h3>
+                        <p>State-of-the-art fitness center, tennis courts, and swimming pool for your wellness.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Restaurant</h3>
+                        <p>Indulge in exquisite dining experiences with our world-class culinary offerings.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <i class="fas fa-child"></i>
+                        <h3>Kidz</h3>
+                        <p>Safe and fun environment for children with dedicated play areas and activities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>UPCOMING EVENTS</h2>
+                <div class="section-divider"></div>
+                <p>Join us for exclusive events and create unforgettable memories with fellow members</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="event-card">
+                        <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=400&h=250&fit=crop" alt="New Year Event">
+                        <div class="event-card-body">
+                            <div class="event-date"><i class="far fa-calendar-alt"></i> 29 Dec 2025</div>
+                            <h3>New Year Eve Ball 2026</h3>
+                            <p>Celebrate the arrival of 2026 with an elegant evening of music, dance, and fine dining.</p>
+                            <button class="btn btn-primary-custom">Join With Us</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="event-card">
+                        <img src="https://images.unsplash.com/photo-1654486614364-206c2a4c7b71?w=400&h=250&fit=crop" alt="Board Meeting">
+                        <div class="event-card-body">
+                            <div class="event-date"><i class="far fa-calendar-alt"></i> 29 Jun 2025</div>
+                            <h3>Newly Elected President and Board of Director 2025-2026</h3>
+                            <p>Welcoming our new leadership for the upcoming year.</p>
+                            <button class="btn btn-primary-custom">Join With Us</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="event-card">
+                        <img src="https://images.unsplash.com/photo-1692380827087-eacf69856b1b?w=400&h=250&fit=crop" alt="Condolence">
+                        <div class="event-card-body">
+                            <div class="event-date"><i class="far fa-calendar-alt"></i> 30 Dec 2025</div>
+                            <h3>BEGUM KHALEDA ZIA CONDOLENCE</h3>
+                            <p>Condolence Message from Dhaka Club Limited</p>
+                            <button class="btn btn-primary-custom">Join With Us</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>ABOUT US</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="about-content">
+                        <p><strong>The Dhaka Club Ltd.</strong> has emerged as an icon of elegance in its aristocracy, tradition and excellence. This club has taken a unique place in the history of the clubs of this sub-continent; a club known by all and sundry, for its diversity of members in professions, age, gender, social and other interests.</p>
+                        
+                        <p>It is the oldest recreational organization and the largest of elite clubs in Dhaka, Bangladesh where friendships are rekindled and reinforced. There is a feeling of camaraderie that defines the culture of the club, found in the informal, friendly interaction between young and older members.</p>
+                        
+                        <p>It was registered on 19 August 1911 in the model of the Bengal Club of Calcutta. It was granted legal status on 14 September 1911 under the Indian Companies Act of 1882. The club is located near Shahbag Intersection and is surrounded by Dhaka University, Bangladesh National Museum, Radio Bangladesh, BIRDEM Hospital, Ramna Park and the Suhrawardy Udyan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>PHOTO GALLERY</h2>
+                <div class="section-divider"></div>
+                <p>Explore our world-class facilities and elegant spaces</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1758977404398-f0fa4c9487fd?w=400&h=250&fit=crop" alt="Royal Bengal Dinning">
+                        <div class="gallery-overlay">
+                            <h5>Royal Bengal Dinning</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1547934045-2942d193cb49?w=400&h=250&fit=crop" alt="Tennis Zone">
+                        <div class="gallery-overlay">
+                            <h5>Tennis Zone</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1578966663421-00f3bfebfa89?w=400&h=250&fit=crop" alt="Football Zone">
+                        <div class="gallery-overlay">
+                            <h5>Football Zone</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1545150459-d46a421efab9?w=400&h=250&fit=crop" alt="Reception Area">
+                        <div class="gallery-overlay">
+                            <h5>Reception Area</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=250&fit=crop" alt="Fitness Zone">
+                        <div class="gallery-overlay">
+                            <h5>Fitness Zone</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="gallery-item">
+                        <img src="https://plus.unsplash.com/premium_photo-1672281090350-6f17cefdec59?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Kidz Zone">
+                        <div class="gallery-overlay">
+                            <h5>Kidz Zone</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1714254567463-26966f6ba4ba?w=400&h=250&fit=crop" alt="Pool Area">
+                        <div class="gallery-overlay">
+                            <h5>Pool Area</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1732456604673-275c66408308?w=400&h=250&fit=crop" alt="Library">
+                        <div class="gallery-overlay">
+                            <h5>Library</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Gallery -->
+    <section class="video-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>VIDEO GALLERY</h2>
+                <div class="section-divider"></div>
+                <p>Take a virtual tour of our prestigious club facilities</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="video-item">
+                        <iframe src="https://www.youtube.com/embed/HvuEYfEDKns" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="video-item">
+                        <iframe src="https://www.youtube.com/embed/sOFAwiDV1Cw" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="video-item">
+                        <iframe src="https://www.youtube.com/embed/GD9KfsvFSMU" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Events -->
+    <section class="news-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>NEWS & EVENTS</h2>
+                <div class="section-divider"></div>
+                <p>Stay updated on all of the Club's current affairs and developments</p>
+            </div>
+            <div class="news-grid">
+                <div class="news-item">
+                    <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=300&h=200&fit=crop" alt="News 1">
+                </div>
+                <div class="news-item">
+                    <img src="https://images.unsplash.com/photo-1654486614364-206c2a4c7b71?w=300&h=200&fit=crop" alt="News 2">
+                </div>
+                <div class="news-item">
+                    <img src="https://images.unsplash.com/photo-1692380827087-eacf69856b1b?w=300&h=200&fit=crop" alt="News 3">
+                </div>
+                <div class="news-item">
+                    <img src="https://images.unsplash.com/photo-1619492774026-a9d7bebe06e8?w=300&h=200&fit=crop" alt="News 4">
+                </div>
+                <div class="news-item">
+                    <img src="https://images.unsplash.com/photo-1662659022684-61bd63df5c17?w=300&h=200&fit=crop" alt="News 5">
+                </div>
+                <div class="news-item">
+                    <img src="https://images.unsplash.com/photo-1563573143765-fb9f46ff7e45?w=300&h=200&fit=crop" alt="News 6">
+                </div>
+                <div class="news-item">
+                    <img src="https://plus.unsplash.com/premium_photo-1765727307497-a5e764e12eaf?q=80&w=799&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="News 6">
+                </div>
+                <div class="news-item">
+                    <img src="https://images.unsplash.com/photo-1764377848067-aefbce306f80?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="News 6">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history" class="history-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>OUR HISTORY</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="history-content text-center">
+                        <h3 class="mb-4">NEARLY SIX YEARS AFTER THE PARTITION OF BENGAL IN 1905, THE DHAKA CLUB WAS FOUNDED ON 19TH AUGUST, 1911.</h3>
+                        
+                        <div class="history-founders">
+                            <h4 class="mb-4">FOUNDER MEMBERS</h4>
+                            <ul>
+                                <li>LT COL E.A.W.HALL, CIVIL SURGEON OF DHAKA & SUPERINTENDENT OF MITFORD HOSPITAL</li>
+                                <li>C.R.W.BRYAN, MERCHANT, NARAYANGANJ</li>
+                                <li>H.G.BALLY, COMMANDANT, MILITARY POLICE BATTALION, DHAKA</li>
+                                <li>J.O.RENNIE, EXECUTIVE OFFICER, PUBLIC WORKS DEPARTMENT, DHAKA</li>
+                                <li>J.S.WILSON, INDIAN POLICE, DHAKA</li>
+                                <li>A.T.HALLIDAY, INDIAN POLICE, DHAKA</li>
+                            </ul>
+                        </div>
+                        
+                        <p class="mt-4">THE CLUB OBTAINED ITS LEGAL STATUS ON SEPTEMBER 14, 1911 UNDER THE INDIAN COMPANIES ACT OF 1882. THE FOUNDER MEMBERS WERE ALL BRITISH, EITHER BUREAUCRAT OR COMMERCIAL PERSONS.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- President Section -->
+    <section class="president-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>PRESIDENT</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="president-card text-center">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop" alt="President" class="president-image mx-auto">
+                        <div class="president-message">
+                            <p>It is with great pleasure that I welcome you to the official website of Dhaka Club Ltd. As the President of this esteemed Club, I am happy to extend my warmest greetings to each of you. It's my privilege to lead our inclusive community of Members who share a common passion for excellence, camaraderie, and the pursuit of a dynamic and fulfilling lifestyle.</p>
+                            
+                            <p>With a proud history of 112 years, Dhaka Club Ltd has established a significant legacy that transcends generations, remaining a central focal point for a wide range of social, cultural, and recreational activities within our cherished city. Whether you're seeking a serene environment to relax, a platform to network with like-minded individuals, or an opportunity to engage in sports and cultural events, Dhaka Club Ltd has something special for you.</p>
+                            
+                            <p>As we embark on this digital journey with our website, you'll find up-to-date information on upcoming events, member-exclusive benefits, and a glimpse into the soul of our Club life. Thank you for being part of the Dhaka Club family. Together, we'll create lasting moments and nurture a sense of belonging that will last a lifetime.</p>
+                            
+                            <p class="mt-4"><strong>With warm regards,</strong></p>
+                        </div>
+                        <div class="president-name">Shameem Hussain</div>
+                        <div class="president-title">President, Dhaka Club Ltd</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>GET IN TOUCH</h2>
+                <div class="section-divider"></div>
+                <p>We want to share our location to find us easily</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="contact-info mb-4">
+                        <h4><i class="fas fa-map-marker-alt"></i> Office Address</h4>
+                        <p>Moulana Bhashani Road<br>Ramna, Dhaka-1000<br>Bangladesh</p>
+                        
+                        <h4><i class="fas fa-phone"></i> Telephone Number</h4>
+                        <p>PABX NO: Hotline: 16803<br>+8802 41060405-10<br>02-41060412<br>Guest house Mobile: +8801313778866</p>
+                        
+                        <h4><i class="fas fa-envelope"></i> Mail Address</h4>
+                        <p>info@dhakaclubltd.com</p>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.9044977474886!2d90.39483731445401!3d23.750891194663874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b7a55cd36f%3A0xfcc5b021faff43ea!2sThe%20Dhaka%20Club%20Ltd.!5e0!3m2!1sen!2sbd!4v1234567890" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Dhaka Club Ltd. All Rights Reserved.</p>
+            <p>Designed & Developed by <a href="#">Icon Infotech</a></p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Auto close navbar on mobile after clicking
+        const navLinks = document.querySelectorAll('.nav-link');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navbarCollapse.classList.contains('show')) {
+                    navbarCollapse.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
